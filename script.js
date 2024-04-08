@@ -1,3 +1,14 @@
+const isEven = (num) => num % 2 === 0;
+const sum = (nums) => nums.reduce((acc, el) => acc + el, 0);
+const average = (nums) => sum(nums) / nums.length;
+
+const median = (nums) => {
+  const sorted = nums.slice().sort((a, b) => a - b);
+  const length = sorted.length;
+  const middle = length / 2 - 1;
+  isEven(length) ? middle : Math.floor(middle);
+};
+
 const range = (start, end) =>
   Array(end - start + 1)
     .fill(start)
@@ -23,6 +34,8 @@ window.onload = () => {
       const input = document.createElement("input");
       input.type = "text";
       input.id = letter + number;
+      input.ariaLabel = letter + number;
+      container.appendChild(input);
     });
   });
 };
